@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 class Module_Connexion
 {
     private $_login;
@@ -150,57 +146,70 @@ class Module_Inscription
             } else {
                 echo 'Les mots de passes ne sonts pas identiques';
             }
-
-
-
-
-
-
-
-
-            // else {
-            //     if (!filter_var($this->_email, FILTER_VALIDATE_EMAIL)) {
-            //         echo $this->_email . " n'est pas une adresse valide";
-            //     } else {
-            //         $PDO = new PDO('mysql:host=localhost;dbname=lucien-zak_blog', 'blog', 'blog123');
-            //         $req = 'INSERT INTO `utilisateurs`(`login`, `password`, `email`, `id_droits`) VALUES (:login, :password, :email, :id)';
-            //         $stmt = $PDO->prepare($req);
-            //         $stmt->execute([
-            //             ':login' => $this->_login,
-            //             ':password' => $this->_password,
-            //             ':email' => $this->_email,
-            //             ':id' => $this->_id = 1,
-            //         ]);
-            //         echo 'Utilisateur crée';
-            //     }
-            // }
         }
     }
 }
-if (isset($_POST['login'])) {
-    $utilisateur = new Module_Inscription($_POST['login'], $_POST['mdp'], $_POST['mdp2'], $_POST['mail']);
-    $utilisateur->ins_util();
+
+class Article
+{
+
+    // private $_contenu;
+    // private $_titre;
+    // private $_idutil;
+    // private $_idcat;
+    // private $_id;
+
+    // function __construct(){
+
+    //     // $this->_contenu = $contenu;
+    //     // $this->_titre = $titre;
+    //     // $this->_idutil = $idutil;
+    //     // $this->_idcat = $idcat;
+    //     // $this->_id = $id;
+
+    // }
+
+    public function getArticleParId(int $id)
+    {
+        $PDO = new PDO('mysql:host=localhost;dbname=lucien-zak_blog', 'blog', 'blog123');
+        $req = "SELECT * FROM `articles` WHERE `id`=" . $id . "";
+        $stmt = $PDO->query($req);
+        $list_articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    public function getArticleLimite(int $limit, int $OFFSET = 0)
+    {
+        $PDO = new PDO('mysql:host=localhost;dbname=lucien-zak_blog', 'blog', 'blog123');
+        $req = "SELECT `articles`.`id`, `articles`.`article`,`articles`.`titre`,`articles`.`date`, `categories`.`nom` AS 'categorie', `utilisateurs`.`login`  FROM `articles` INNER JOIN `categories` ON `articles`.`id_categorie` = `categories`.`id` INNER JOIN `utilisateurs` ON `articles`.`id_utilisateur` = `utilisateurs`.`id` LIMIT " . $limit . "";
+        $stmt = $PDO->query($req);
+        $list_articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        for ($i = 0; $i < $limit; $i++) { ?>
+            <div class="container-2">
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://aitechnologiesng.com/wp-content/uploads/2021/01/Software-Development-Training-in-Abuja1-1024x768.jpg" alt="city" />
+                    </div>
+                    <div class="card-body">
+                        <a href="#main"><span class="tag tag-blue"><?php echo $list_articles[$i]['categorie'] ?></span></a>
+                        <h2>
+                            <?php echo $list_articles[$i]['titre'] ?>
+                        </h2>
+                        <p>
+                            <?php echo $list_articles[$i]['article'] ?>
+                        </p>
+                        <div class="user">
+                            <img src="https://studyinbaltics.ee/wp-content/uploads/2020/03/3799Ffxy.jpg" alt="user" />
+                            <div class="user-info">
+                                <h5><?php echo $list_articles[$i]['login'] ?></h5>
+                                <small><?php echo $list_articles[$i]['date'] ?></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php
+        }
+    }
 }
-// $verif = $connexion->verif_mdp();
-// $PDO = new PDO('mysql:host=localhost;dbname=lucien-zak_blog','blog','blog123');
-// // $req = 'INSERT INTO `utilisateurs`(`login`, `password`, `email`, `id_droits`) VALUES (:login, :password, :email, :id)';
-// // $stmt = $PDO->prepare($req);
-// // $stmt->execute([
-// //     ':login' => 'test',
-// //     ':password' => '123',
-// //     ':email' => 'lulu@aza',
-// //     ':id' => '42',
-// // ]);
-// $req = 'SELECT * FROM `utilisateurs`';
-// $stmt = $PDO->query($req);
-// $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
-
-<form action="#" method="POST">
-    <input placeholder="login" type="text" name="login" id="">
-    <input placeholder="mdp" type="text" name="mdp" id="">
-    <input placeholder="mdp2" type="text" name="mdp2" id="">
-    <input placeholder="mail" type="text" name="mail" id="">
-    <input type="submit" value="connexion">
-</form>

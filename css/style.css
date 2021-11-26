@@ -1,0 +1,348 @@
+@font-face {
+    font-family: Comfortaa;
+    src: url('../font/comfortaa.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/*
+        HEADER
+ */
+header {
+    height:8%;
+    width:100%;
+    background-color:transparent;
+    position:absolute;
+    z-index:999;
+    color:#000;
+    font-family:Comfortaa;
+}
+
+header nav.navbar {
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:row;
+    box-shadow:0 0 50px 1px rgba(0,0,0,0.7);
+    background-color:#fff;
+}
+
+header nav.navbar div.container-left {
+    height:100%;
+    width:50%;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+
+header nav.navbar div.container-left a {
+    font-family:Comfortaa;
+    font-size:200%;
+    padding-left:3%;
+    color:#000;
+    text-decoration:none;
+}
+
+header nav.navbar div.container-right {
+    height:100%;
+    width:50%;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+header nav.navbar div.container-right div.box {
+    height:100%;
+    width:15%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+header nav.navbar div.container-right div.box a {
+    color:#000;
+    text-decoration:none;
+    font-size:105%;
+}
+
+header nav.navbar div.container-right div.box:hover a {
+    color:#ff5151;
+    font-size:105%;
+}
+
+header nav.navbar div.container-right .dropdown {
+    display:flex;
+    height:100%;
+    width:14%;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    font-size:105%;
+}
+
+header nav.navbar div.container-right .dropdown-content {
+    display:none;
+    position:absolute;
+    top:100%;
+    background-color:#fff;
+    border-top:#ff5151 3px solid;
+    min-width:auto;
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index:1;
+}
+
+header nav.navbar div.container-right .dropdown-content h3 {
+    font-family: Comfortaa;
+    padding-top:4%;
+    padding-bottom:4%;
+    padding-left:4%;
+}
+
+header nav.navbar div.container-right .dropdown-content a {
+    color:#000;
+    padding-top:4%;
+    padding-bottom:4%;
+    padding-left:4%;
+    text-decoration:none;
+    display:block;
+}
+
+header nav.navbar div.container-right .dropdown-content a:hover {
+    background-color:#b9b8b8;
+    text-decoration:underline;
+    color:#ff5151;
+}
+
+header nav.navbar div.container-right .dropdown:hover .dropdown-content {
+    display:flex;
+    flex-direction:row;
+}
+
+header nav.navbar div.container-right .dropdown:hover .dropbtn {
+    color:#ff5151;
+}
+
+header nav.navbar div.container-right .dropdown:hover .dropbtn a {
+    color:#cacaca;
+}
+
+/*
+        MAIN
+ */
+main.home {
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/background.jpg');
+}
+
+main.home div.container-top {
+    width: 100%;
+    height: 68%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main.home div.container-top div.box {
+    margin-top: 8%;
+    width: 40%;
+    height: 40%;
+    border: 10px white solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main.home div.container-top div.box h2 {
+    margin: 10%;
+    color: white;
+    font-family: "Comfortaa";
+    font-size: 500%;
+}
+
+section.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section.container div.container-1 h2#title {
+    padding-top: 5%;
+    font-family: 'Comfortaa';
+    font-size: 225%;
+    margin-bottom: 3%;
+}
+
+section.container div.container-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+section.container div.container-2 {
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.card {
+    width: 22%;
+    margin: 2.5%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    font-family: 'Comfortaa';
+    transition-duration: 300ms;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card-header img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 250px;
+}
+
+.tag {
+    background: #cccccc;
+    border-radius: 50px;
+    font-size: 70%;
+    margin: 0;
+    color: #fff;
+    padding: 6px 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.tag-teal {
+    background-color: #47bcd4;
+}
+.tag-purple {
+    background-color: #5e76bf;
+}
+.tag-blue {
+    background-color: #4666ce;
+}
+
+.card-body h2 {
+    margin-top: 7%;
+}
+
+.card-body a {
+    text-decoration: none;
+    color: white;
+}
+
+.card-body p {
+    font-size: 100%;
+    margin: 0 0 40px;
+}
+.user {
+    display: flex;
+    margin-top: auto;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user img {
+    border-radius: 50%;
+    width: 15%;
+    height: 15%;
+    margin-right: 10px;
+}
+.user-info h5 {
+    margin: 0;
+}
+.user-info small {
+    color: #545d7a;
+}
+
+/*
+
+        LOGIN
+
+ */
+
+main.login {
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/background.jpg');
+    z-index: 1;
+}
+
+main.login div.container {
+    width: 40%;
+    height: 100%;
+    background-color: white;
+    z-index: 2;
+}
+
+
+/*
+        FOOTER
+ */
+footer {
+    height: 80%;
+    width: 100%;
+    background-color: #5e5d5d;
+}
+
+footer div#top svg {
+    filter: drop-shadow(0px 10px 6px rgb(0 0 0 / 0.4));
+}
+
+footer div#bottom {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    font-family: Comfortaa;
+}
+
+footer div#bottom div.container {
+    height: auto;
+    width: 10%;
+    padding: 2%;
+}
+
+footer div#bottom div.container h2 {
+    margin-bottom: 6%;
+}
+
+footer div#bottom div.container a {
+    text-decoration: none;
+    color: black;
+}
+
+footer div#bottom div.container a:hover {
+    color: white;
+}
+
+
+footer div#bottom div.container ul, li {
+    list-style-type: none;
+    margin-bottom: 1.5%;
+}
