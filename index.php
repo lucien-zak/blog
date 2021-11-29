@@ -1,7 +1,5 @@
 <?php
-require('config.php');
-session_start();
-require './fonctions/fonctions.php'
+require ('./fonctions.php');
 ?>
 
 <!--    HEAD   -->
@@ -36,11 +34,13 @@ require('header.php');
             <h2 id="title">Nos derniers articles</h2>
         </div>
         <!--    Generation Card   -->
+        <div class="container-2">
         <?php
         $article = new Article();
         $article->getArticleLimite("3");
         ?>
-                <!--   Fin Generation Card   -->
+        </div>
+        <!--   Fin Generation Card   -->
     </section>
 
 <?php

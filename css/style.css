@@ -68,13 +68,14 @@ header nav.navbar div.container-right div.box {
 }
 
 header nav.navbar div.container-right div.box a {
-    color:#000;
+    color:#27283c;
     text-decoration:none;
     font-size:105%;
+    transition-duration: 300ms;
 }
 
 header nav.navbar div.container-right div.box:hover a {
-    color:#ff5151;
+    color: #000;
     font-size:105%;
 }
 
@@ -93,7 +94,7 @@ header nav.navbar div.container-right .dropdown-content {
     position:absolute;
     top:100%;
     background-color:#fff;
-    border-top:#ff5151 3px solid;
+    border-top: #27283c 3px solid;
     min-width:auto;
     box-shadow:0 8px 16px 0 rgba(0,0,0,0.2);
     z-index:1;
@@ -117,8 +118,7 @@ header nav.navbar div.container-right .dropdown-content a {
 
 header nav.navbar div.container-right .dropdown-content a:hover {
     background-color:#b9b8b8;
-    text-decoration:underline;
-    color:#ff5151;
+    color:#27283c;
 }
 
 header nav.navbar div.container-right .dropdown:hover .dropdown-content {
@@ -127,7 +127,7 @@ header nav.navbar div.container-right .dropdown:hover .dropdown-content {
 }
 
 header nav.navbar div.container-right .dropdown:hover .dropbtn {
-    color:#ff5151;
+    color:#000;
 }
 
 header nav.navbar div.container-right .dropdown:hover .dropbtn a {
@@ -285,20 +285,134 @@ section.container div.container-2 {
 
         LOGIN
 
- */
+*/
 
 main.login {
     height: 100%;
     width: 100%;
     background-image: url('../img/background.jpg');
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main.login div.container {
-    width: 40%;
+    width: 30%;
     height: 100%;
     background-color: white;
     z-index: 2;
+    box-shadow: 0px 0px 25px 1px black;
+}
+
+main.login div.container form.forms {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main.login div.container div.box#top {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main.login div.container div.box#top h1 {
+    font-weight: bold;
+    font-family: "Comfortaa";
+}
+
+main.login div.container div.box#middle {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main.login div.container div.box#middle input {
+    width: 60%;
+    height: 25%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border: none;
+    background-color: rgba(247,247,249,.7);
+    font-family: "Comfortaa";
+    color: grey;
+    border-color: #ccc;
+}
+
+main.login div.container div.box#bottom {
+    height: 10%;
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main.login div.container div.box#bottom input {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 3% 6%;
+    font-size: 92%;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: bold;
+    font-family: "Comfortaa";
+}
+
+main.login div.container div.box#bottom input#connection {
+    background-color: #5867dd;
+    border-color: #5867dd;
+    color: white;
+}
+
+main.login div.container div.box#bottom input#forgot {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+main.login div.container div.box#bottom input#forgot:hover {
+    background-color: rgb(216, 216, 216);
+    transition: all 0.2s ease-in-out;
+}
+
+main.login div.container div.box#register {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+main.login div.container div.box#register hr {
+    width: 180px;
+    color: #ccc;
+}
+
+main.login div.container div.box#register span {
+    font-family: "Comfortaa";
+    color: #ccc;
+    padding: 5%;
 }
 
 
@@ -308,7 +422,7 @@ main.login div.container {
 footer {
     height: 80%;
     width: 100%;
-    background-color: #5e5d5d;
+    background: -webkit-linear-gradient(left top,#79799c,#131327);
 }
 
 footer div#top svg {
@@ -326,6 +440,7 @@ footer div#bottom div.container {
     height: auto;
     width: 10%;
     padding: 2%;
+    color: #c2cbd0;
 }
 
 footer div#bottom div.container h2 {
@@ -334,7 +449,7 @@ footer div#bottom div.container h2 {
 
 footer div#bottom div.container a {
     text-decoration: none;
-    color: black;
+    color: #c2cbd0;
 }
 
 footer div#bottom div.container a:hover {

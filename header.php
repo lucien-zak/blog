@@ -47,10 +47,10 @@
             </div>
             <?php } else { ?>
             <div class="box">
-                <a href="login.php">Connexion</a>
+                <a href="./utilisateur/connexion.php">Connexion</a>
             </div>
             <div class="box">
-                <a href="#">Inscription</a>
+                <a href="./utilisateur/inscription.php">Inscription</a>
             </div>
             <?php } ?>
         </div>
