@@ -37,8 +37,8 @@ if(isset($_POST['submit'])) {
                     <input type="password" name="password" placeholder="Mot de passe">
                 </div>
                 <div class="box" id="bottom">
-                    <input type="submit" name="submit" id="connection" autofocus value="Connexion">
-                    <input type="submit" name="forgot-button" id="forgot" autofocus value="Mot de passe oublié?">
+                    <input type="submit" name="submit" class="btn green" autofocus value="Connexion">
+                    <input type="submit" name="forgot-button" class="btn red" autofocus value="Mot de passe oublié?">
                 </div>
                 <div class="box" id="register">
                     <hr></hr>
@@ -46,7 +46,7 @@ if(isset($_POST['submit'])) {
                     <hr></hr>
                 </div>
                 <div class="box" id="bottom">
-                    <input type="submit" name="register-button" id="forgot" value="Pas encore de compte, créez-en un dès maintenant.">
+                    <input type="submit" name="register-button" class="btn blue" value="Pas encore de compte, créez-en un dès maintenant.">
                 </div>
             </form>
         </div>

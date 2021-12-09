@@ -28,14 +28,15 @@ if(isset($_POST['submit'])) {
                 <div class="box" id="top">
                     <h1>INSCRIPTION</h1>
                 </div>
+                <?php if (isset($_POST['submit'])) {$connexion->alerts(); } ?>
                 <div class="box" id="middle">
-                    <input type="email" name="email" placeholder="Adresse courriel"><br>
-                    <input type="email" name="login" placeholder="Nom d'utilisateur"><br>
+                    <input type="text" name="email" placeholder="Adresse courriel"><br>
+                    <input type="text" name="login" placeholder="Nom d'utilisateur"><br>
                     <input type="password" name="password" placeholder="Mot de passe"><br>
                     <input type="password" name="password_confirmation" placeholder="Confirmer le Mot de passe">
                 </div>
                 <div class="box" id="bottom">
-                    <input type="submit" name="submit" id="connection" autofocus value="Créer le compte">
+                    <input type="submit" name="submit" class="btn green" autofocus value="Créer le compte">
                 </div>
                 <div class="box" id="register">
                     <hr></hr>
@@ -43,7 +44,7 @@ if(isset($_POST['submit'])) {
                     <hr></hr>
                 </div>
                 <div class="box" id="bottom">
-                    <input type="submit" name="login-button" id="forgot" value="Vous avez déjà un compte ? Connectez-vous.">
+                    <input type="submit" name="login-button" class="btn blue" value="Vous avez déjà un compte ? Connectez-vous.">
                 </div>
             </form>
         </div>

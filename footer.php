@@ -6,10 +6,10 @@
         <div class="container">
             <h2><?php echo $GLOBALS['name'] ?></h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-            <ul>
-                <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+            <ul id="icons">
+                <li id="icon" class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                <li id="icon" class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                <li id="icon" class="list-inline-item"><a href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
             </ul>
         </div>
         <div class="container">
@@ -18,15 +18,18 @@
                 <?php
                     if (!$_SESSION) {
                         echo ('
-                            <li><a href="login.php">Connexion</a></li>
-                            <li><a href="register.php">Inscription</a></li>
+                            <li><a href="/blog/utilisateur/connexion.php">Connexion</a></li>
+                            <li><a href="/blog/utilisateur/inscription.php">Inscription</a></li>
                         ');
                     } else {
                         echo ('
-                            <a><li>Voir les articles</li></a>
-                            <a><li>Écrire un article</li></a>
-                            <a><li>Profil</li></a>
-                        ');
+                            <a href="/blog/article/articles.php?categorie=tout"><li>Voir les articles</li></a>
+                            <a href="/blog/utilisateur/profil.php"><li>Profil</li></a>'
+                        ); 
+                        if ($_SESSION['perms'] == 1337 || $_SESSION['perms'] == 42) {
+                            echo '<a href="/blog/utilisateur/admin.php">Admin</a>';
+                            echo '<a href="/blog/article/creer-article.php"><li>Écrire un article</li></a>';
+                        }
                     }
                 ?>
 
@@ -35,12 +38,14 @@
         <div class="container">
             <h2>Catégories</h2>
             <ul>
-                <?php
-                // Boucle sur les catégories des articles
-                // foreach($res as $key => $value) {
-                //     echo '<li>$value</li>';
-                // }
-                ?>
+            <?php
+                $req = "SELECT * FROM `categories`";
+                $stmt = $GLOBALS['PDO']->query($req);
+                $list_articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                for ($i = 0; $i < count($list_articles); $i++) { ?>
+                    <a href="/blog/article/articles.php?categorie=<?php echo $list_articles[$i]['nom'] ?>"><?php echo $list_articles[$i]['nom'] ?></a> <?php 
+                } ?>
+                <br><a href="/blog/article/articles.php?categorie=tout">Afficher toute les catégories</a>
             </ul>
         </div>
         <div class="container">
